@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "player": "ronaldinho",
+  "rig": "makehuman-game-engine",
+  "duration": 1.4,
+  "contactTime": 0.64,
+  "ballRadius": 0.105,
+  "clips": {
+    "foot_l": {
+      "point": [
+        0.22382,
+        0.4816,
+        0.31235
+      ],
+      "limb": "foot_l",
+      "contactTime": 0.64
+    },
+    "foot_r": {
+      "point": [
+        -0.22382,
+        0.48433,
+        0.31235
+      ],
+      "limb": "foot_r",
+      "contactTime": 0.64
+    },
+    "knee_l": {
+      "point": [
+        0.08187,
+        0.98782,
+        0.47979
+      ],
+      "limb": "calf_l",
+      "contactTime": 0.64
+    },
+    "knee_r": {
+      "point": [
+        -0.08187,
+        0.98782,
+        0.47979
+      ],
+      "limb": "calf_r",
+      "contactTime": 0.64
+    },
+    "header": {
+      "point": [
+        0.0,
+        2.00817,
+        0.0721
+      ],
+      "limb": "head",
+      "contactTime": 0.64
+    }
+  },
+  "qualityStatus": "study-awaiting-visual-review"
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env*
+!.env.example
+test-results/
+playwright-report/
+*.log
+output/
+*.blend1
+*.blend2

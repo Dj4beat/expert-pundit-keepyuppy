@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-02",
+  "build": "5bab91e5be8d31e4",
+  "modelSha256": "5709269f9b2d8a7579cd133734836bd8cc6a46f51edbfc86af68c8d3ffd55c23",
+  "visualGate": "pending",
+  "captures": [
+    {
+      "file": "ronaldinho-gameplay-normal.webm",
+      "bytes": 293907,
+      "sha256": "f104a5ded76b46ab217a2f3e071e60793c76d20781b9ab2dc7857f0b03e282f1",
+      "simulationSeconds": 32.375,
+      "camera": "gameplay",
+      "speed": 1,
+      "successfulTouches": 21,
+      "contactTypes": ["foot_l", "foot_r", "header", "knee_l", "knee_r"],
+      "outcomes": ["early", "late", "miss", "perfect"],
+      "maxSampledMarkerGapMetres": 0.011779751076106453
+    },
+    {
+      "file": "ronaldinho-gameplay-quarter.webm",
+      "bytes": 2215389,
+      "sha256": "a0c6018fb67a78152b4cb265edcbd98b3e282ccfda90c485b885fb3384a1175e",
+      "simulationSeconds": 32.375,
+      "camera": "gameplay",
+      "speed": 0.25,
+      "successfulTouches": 21,
+      "contactTypes": ["foot_l", "foot_r", "header", "knee_l", "knee_r"],
+      "outcomes": ["early", "late", "miss", "perfect"],
+      "maxSampledMarkerGapMetres": 0.012540170087841166
+    },
+    {
+      "file": "ronaldinho-side-normal.webm",
+      "bytes": 174576,
+      "sha256": "1097ae8bfebbc4a93c4855375616d229b7409761d623ddaf351914302bdffba7",
+      "simulationSeconds": 32.375,
+      "camera": "side",
+      "speed": 1,
+      "successfulTouches": 21,
+      "contactTypes": ["foot_l", "foot_r", "header", "knee_l", "knee_r"],
+      "outcomes": ["early", "late", "miss", "perfect"],
+      "maxSampledMarkerGapMetres": 0.006985284426520569
+    },
+    {
+      "file": "ronaldinho-side-quarter.webm",
+      "bytes": 1244668,
+      "sha256": "5e616f7d4d9d52220645331970cdab21ac62c2bd1e63d68544e5008a9a187788",
+      "simulationSeconds": 32.375,
+      "camera": "side",
+      "speed": 0.25,
+      "successfulTouches": 21,
+      "contactTypes": ["foot_l", "foot_r", "header", "knee_l", "knee_r"],
+      "outcomes": ["early", "late", "miss", "perfect"],
+      "maxSampledMarkerGapMetres": 0.013040267982831238
+    }
+  ]
+}

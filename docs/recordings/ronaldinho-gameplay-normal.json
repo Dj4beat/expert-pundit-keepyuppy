@@ -1,0 +1,191 @@
+{
+  "camera": "gameplay",
+  "speed": 1,
+  "contacts": [
+    {
+      "serial": 1,
+      "limb": "foot_r",
+      "expectedTime": 1.5,
+      "actualTime": 1.5,
+      "point": [-0.22382, 0.4843299999999999, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 2,
+      "limb": "foot_l",
+      "expectedTime": 2.95,
+      "actualTime": 2.95,
+      "point": [0.22382, 0.48159999999999936, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 3,
+      "limb": "knee_r",
+      "expectedTime": 4.4,
+      "actualTime": 4.375,
+      "point": [-0.08160052052154662, 1.0360920689655173, 0.47964239411209975],
+      "outcome": "early"
+    },
+    {
+      "serial": 4,
+      "limb": "foot_l",
+      "expectedTime": 5.975,
+      "actualTime": 5.975,
+      "point": [0.22382, 0.48160000000000114, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 5,
+      "limb": "knee_l",
+      "expectedTime": 7.425,
+      "actualTime": 7.45,
+      "point": [0.08187, 0.9375479310344819, 0.47979],
+      "outcome": "late"
+    },
+    {
+      "serial": 6,
+      "limb": "header",
+      "expectedTime": 8.918009042189295,
+      "actualTime": 8.916666666666666,
+      "point": [2.0524462883420025e-7, 2.010341110613072, 0.07210102206159436],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 7,
+      "limb": "foot_r",
+      "expectedTime": 10.366666666666665,
+      "actualTime": 10.366666666666667,
+      "point": [-0.22381999999999996, 0.4843299999999964, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 8,
+      "limb": "foot_l",
+      "expectedTime": 11.816666666666666,
+      "actualTime": 11.816666666666666,
+      "point": [0.22381999999999996, 0.48160000000000114, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 9,
+      "limb": "knee_r",
+      "expectedTime": 13.266666666666666,
+      "actualTime": 13.266666666666666,
+      "point": [-0.08187, 0.9878200000000015, 0.47979],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 10,
+      "limb": "foot_l",
+      "expectedTime": 14.716666666666665,
+      "actualTime": 14.691666666666666,
+      "point": [0.22355052052154667, 0.5473279310344807, 0.3124976058879003],
+      "outcome": "early"
+    },
+    {
+      "serial": 11,
+      "limb": "knee_l",
+      "expectedTime": 16.291666666666668,
+      "actualTime": 16.291666666666668,
+      "point": [0.08187, 0.9878199999999975, 0.47979],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 12,
+      "limb": "header",
+      "expectedTime": 17.741666666666667,
+      "actualTime": 17.741666666666667,
+      "point": [0, 2.008170000000001, 0.0721],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 13,
+      "limb": "foot_r",
+      "expectedTime": 19.191666666666666,
+      "actualTime": 19.191666666666666,
+      "point": [-0.22382, 0.48433000000000215, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 14,
+      "limb": "foot_l",
+      "expectedTime": 20.641666666666666,
+      "actualTime": 20.641666666666666,
+      "point": [0.22382, 0.48160000000000114, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 15,
+      "limb": "knee_r",
+      "expectedTime": 22.091666666666665,
+      "actualTime": 22.091666666666665,
+      "point": [-0.08187000000000003, 0.9878200000000015, 0.47979],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 16,
+      "limb": "foot_l",
+      "expectedTime": 23.541666666666664,
+      "actualTime": 23.541666666666668,
+      "point": [0.22382, 0.4815999999999918, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 17,
+      "limb": "knee_l",
+      "expectedTime": 24.991666666666667,
+      "actualTime": 24.966666666666665,
+      "point": [0.08199513530690067, 1.0360920689655226, 0.47964239411209963],
+      "outcome": "early"
+    },
+    {
+      "serial": 18,
+      "limb": "header",
+      "expectedTime": 26.566666666666666,
+      "actualTime": 26.566666666666666,
+      "point": [0, 2.008169999999998, 0.0721],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 19,
+      "limb": "foot_r",
+      "expectedTime": 28.016666666666666,
+      "actualTime": 28.041666666666668,
+      "point": [-0.22382, 0.39905689655171894, 0.31235],
+      "outcome": "late"
+    },
+    {
+      "serial": 20,
+      "limb": "foot_l",
+      "expectedTime": 29.34166666666667,
+      "actualTime": 29.341666666666665,
+      "point": [0.22382, 0.4816000000000056, 0.31235],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 21,
+      "limb": "knee_r",
+      "expectedTime": 30.791666666666664,
+      "actualTime": 30.791666666666668,
+      "point": [-0.08187000000000003, 0.9878199999999944, 0.47979],
+      "outcome": "perfect"
+    },
+    {
+      "serial": 22,
+      "limb": "foot_l",
+      "expectedTime": 32.24166666666667,
+      "actualTime": 32.32083333333333,
+      "point": [0.22382, 0.2602671072796987, 0.31235],
+      "outcome": "miss"
+    }
+  ],
+  "maxContactError": 0.011779751076106453,
+  "duration": 32.375,
+  "renderer": {
+    "frame": 207,
+    "calls": 46,
+    "triangles": 34816,
+    "points": 0,
+    "lines": 0
+  }
+}
