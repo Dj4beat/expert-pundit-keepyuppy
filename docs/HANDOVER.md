@@ -2,13 +2,20 @@
 
 ## Latest request: publish to GitHub and add creator credit
 
-Publication is explicitly authorized by the user. The user ran the Windows publisher and confirmed the existing GitHub login resolves to Dj4beat, but its initial missing-repository check stopped under Windows PowerShell 5.1. The script now captures native stderr with a locally scoped Continue preference and inspects REST HTTP status: 404 proceeds to creation, an existing repository stops, and authentication/network failures stop with their actual error. This fix has been inspected but cannot be executed in this sandbox; rerun the same Windows publication command. No repository or Pages deployment is confirmed yet. Both editions now have a “Created by Adrian Dane” footer linking to `https://whatchan.co.uk/about-whatchan-adrian-dane#stat-man`. The hosted homepage now opens Focus; `?classic` retains the original, and each portable file retains its edition. The GitHub Pages workflow retains browser checks and now uploads both portable editions plus failure diagnostics.
+Publication is explicitly authorized. The user successfully created and pushed `Dj4beat/expert-pundit-keepyuppy` using Windows PowerShell. The real release checkout is `output/github-pages-source` on `main`; `output/github-ready-source` is an older unused staging folder. GitHub Actions run `37130408355` failed in browser tests: 39 passed, 11 failed, one skipped (Firefox desktop has no touchscreen). Pages publication has **not** been confirmed. The Node.js action-runtime and Ubuntu migration annotations were warnings, not the failed step.
 
-The Top Trumps handover and `scripts/publish-github.ps1` confirm that its successful publication used Windows PowerShell and the existing Windows GitHub CLI login. Reuse that route when execution permissions allow it; installing a GitHub integration is only an alternative. A fresh read-only PowerShell check failed with `UtilBindVsockAnyPort: socket failed 1`. An explicit outside-sandbox check was rejected by the session permission policy (`sandbox_approval: false`; escalated permissions cannot be requested). This is an execution restriction, not evidence of missing GitHub credentials.
+The user saved the failed-step log to `output/github-build-failure.log`. Fixes now prepared:
 
-**Not published yet:** terminal DNS for `api.github.com` fails, Linux `gh` is unavailable, and Windows `gh.exe` fails with a WSL socket error. The GitHub integration was found but was not installed/connected at the time of the check; a connection request is pending. Continue publication when access is available without asking for deployment permission again. Do not claim a repository or live URL until verified.
+- Hide decorative original-game navigation icons from accessible names, so buttons have their visible text names.
+- Assert the native `disabled` property on character options. Playwright's enabled/disabled matcher follows their enclosing label to the select instead of checking the option.
+- Control browser time in the original-game input tests, await asynchronous run startup, and send actual mouse/touch/keyboard events without real-time contact-window races. Keep all browser checks, including a stronger keyboard-repeat assertion.
+- Add `scripts/resume-publish.ps1` to push the reviewed existing checkout, watch the push run matching that exact commit, save failed-step logs automatically, and verify the deployed creator credit after success. The original `publish.ps1` is only for initial repository creation and must not be rerun against this existing repository.
 
-The Windows `scripts/publish.ps1` helper creates an isolated public repository, enables Pages, waits for CI and verifies the credit in the deployed bundle. It has not run successfully here. The current automated suite passes 184 tests, including hosted/portable entry routing. TypeScript, lint, formatting and the production build pass; both portable files contain the exact linked credit. A local source repository has been initialized and staged at `output/github-ready-source` (157 files), with no commit, remote or push. The publication helper still uses its own separate `output/github-pages-source` folder. See deployment.md for the remaining steps and current evidence.
+Both editions contain “Created by Adrian Dane” linking to `https://whatchan.co.uk/about-whatchan-adrian-dane#stat-man`. The hosted homepage opens Focus; `?classic` retains the original. Both portable editions are CI artifacts.
+
+Validation after these fixes: all 184 unit tests pass; lint, formatting, TypeScript and the production build pass. Browser execution remains pending on CI.
+
+This terminal cannot resolve GitHub or launch Windows executables (WSL socket failure). Sandbox escalation was rejected by policy. Continue through the user's working Windows PowerShell and existing GitHub login; deployment permission is already given. The local browser attempt could not start its Vite server. CI must validate the revised browser suite before deployment is considered complete; do not report it as passing from unit-test results alone.
 
 ## High scores and required names
 
@@ -59,12 +66,12 @@ Evidence is in `output/focus-review/dom-checks.json`, `output/trailer/media-veri
 2. In an environment that permits browser execution, run `npm run test:browser`. The new `tests/browser/focus.spec.ts` includes name entry, high-score results and tour scenarios across three configured browsers. Check actual media playback and responsive UI in addition to the tests, which mock media playback.
 3. Test the Focus portable and hosted `/?focus` flow: first/return visits, skip/replay/sound, hidden tabs, reduced motion, name editing, timed runs, scoreboards and attract dismissal.
 4. Verify production offline download, disconnected replay, and update behavior. Test physical Android Chrome and iOS Safari when devices are available.
-5. Record those acceptance results before treating this as a release. Publication has not happened; do not assume a live URL. The latest request authorizes publication once access is available.
+5. Record those acceptance results before treating this as a release. The repository exists, but successful Pages publication is unconfirmed; do not assume a live URL. The latest request authorizes publication once access is available.
 
 ## Environment and safeguards
 
 Native Chromium and local server binding were blocked by sandbox restrictions; browser escalation was automatically rejected. Windows PowerShell interop also failed at the WSL socket layer. The 47-check DOM harness is useful evidence, not browser/device acceptance. Optional harness dependencies and its invocation are documented in `champion-delivery.md`.
 
-No readable Git repository was available in this workspace, and no commit/push or deployment was made. Files are saved locally; no remote backup is claimed. Keep all source, `public/trailer/`, generated portable files and `output/trailer/` when moving the project. Do not delete or reset player saves to verify the application; the test harnesses use isolated storage.
+The root workspace Git metadata remains protected. The separate `output/github-pages-source` checkout contains the repository published by the user; its first commit is backed up remotely. Successful Pages deployment remains unconfirmed. Keep all source, `public/trailer/`, generated portable files and `output/trailer/` when moving the project. Do not delete or reset player saves to verify the application; the test harnesses use isolated storage.
 
 Camera save: `expert-pundit-keepyuppy-focus-v2`; legacy camera migration source: `expert-pundit-keepyuppy-focus-v1`; remembered intro: `expert-pundit-keepyuppy-focus-intro-v1`. The original game uses `expert-pundit-keepyuppy-v2` and must remain untouched. All play stays free; online competition is a future addition.

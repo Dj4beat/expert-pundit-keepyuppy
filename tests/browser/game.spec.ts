@@ -1,11 +1,15 @@
 import { test, expect, type Page } from '@playwright/test';
 async function start(page: Page, mode = 'practice') {
+  // Keep the contact window still while browser input is delivered. Real-time
+  // scrolling/actionability checks can otherwise outlast the 155ms window in CI.
+  await page.clock.install({ time: new Date('2026-01-01T00:00:00Z') });
   await page.goto('/?classic');
-  await page.evaluate((m) => {
-    void (window as any).keepyTest.startRun(m, true);
+  await page.clock.pauseAt(new Date('2026-01-01T00:01:00Z'));
+  await page.evaluate(async (m) => {
+    await (window as any).keepyTest.startRun(m, true);
   }, mode);
+  await page.clock.runFor(3200);
   await expect(page.locator('#court canvas:visible')).toBeVisible();
-  await page.waitForTimeout(3200);
 }
 test('menus fit phone, tablet, desktop and narrow phone layouts', async ({ page }) => {
   const errors: string[] = [];
@@ -35,10 +39,22 @@ test('mouse and keyboard input make contacts, and holding Space does not repeat'
   });
   await page.locator('#court').click();
   await expect(page.locator('#touches')).toContainText('1 TOUCHES');
+  await page.clock.runFor(300);
+  await page.evaluate(() => {
+    const s = (window as any).keepyTest.sim;
+    s.main.due = s.time + 0.02;
+    s.main.y = 490;
+    s.main.vy = 150;
+  });
   await page.keyboard.down('Space');
-  await page.waitForTimeout(300);
+  await expect(page.locator('#touches')).toContainText('2 TOUCHES');
+  await page.clock.runFor(300);
+  const feedback = await page.evaluate(() => (window as any).keepyTest.sim.feedback.serial);
+  // A second down without keyup is a repeat event, as when holding the key.
+  await page.keyboard.down('Space');
+  expect(await page.evaluate(() => (window as any).keepyTest.sim.feedback.serial)).toBe(feedback);
   await page.keyboard.up('Space');
-  expect(await page.evaluate(() => (window as any).keepyTest.sim.hits)).toBe(1);
+  expect(await page.evaluate(() => (window as any).keepyTest.sim.hits)).toBe(2);
 });
 test('touch input works, rotation preserves timing, and pause freezes simulation', async ({
   page,
@@ -56,11 +72,11 @@ test('touch input works, rotation preserves timing, and pause freezes simulation
   await expect(page.locator('#touches')).toContainText('1 TOUCHES');
   await page.getByRole('button', { name: 'Pause game' }).click();
   const before = await page.evaluate(() => (window as any).keepyTest.sim.time);
-  await page.waitForTimeout(600);
+  await page.clock.runFor(600);
   expect(await page.evaluate(() => (window as any).keepyTest.sim.time)).toBe(before);
   await page.setViewportSize({ width: 844, height: 390 });
   await page.getByRole('button', { name: 'BACK TO THE COURT' }).click();
-  await page.waitForTimeout(300);
+  await page.clock.runFor(300);
   expect(await page.evaluate(() => (window as any).keepyTest.sim.time)).toBe(before);
 });
 test('settings survive reload with music off initially, accessible dialogs, and reduced effects', async ({

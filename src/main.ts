@@ -92,7 +92,7 @@ export function startLegacyGame() {
     )
       .map(
         ([name, icon]) =>
-          `<button data-action="nav" data-value="${name}" ${page === name ? 'aria-current="page"' : ''}><span class="nav-icon">${icon}</span>${name}</button>`,
+          `<button data-action="nav" data-value="${name}" ${page === name ? 'aria-current="page"' : ''}><span class="nav-icon" aria-hidden="true">${icon}</span>${name}</button>`,
       )
       .join(
         '',

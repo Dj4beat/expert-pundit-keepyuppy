@@ -365,7 +365,10 @@ test('tour resolves all attempts, holds its summary, then changes character and 
   await page.reload();
   await expect(page.locator('body')).toHaveAttribute('data-focus-ready', 'true');
   await expect(page.locator('#focus-stage-select')).toHaveValue('2');
-  await expect(page.locator('#focus-character option[value="okocha"]')).toBeEnabled();
+  await expect(page.locator('#focus-character option[value="okocha"]')).toHaveJSProperty(
+    'disabled',
+    false,
+  );
 });
 
 test('tour pause preserves attempts and missed targets show a retry summary without unlocking', async ({
@@ -384,7 +387,11 @@ test('tour pause preserves attempts and missed targets show a retry summary with
   await expect(page.getByRole('dialog', { name: 'ROUND FINISHED!' })).toBeVisible();
   await expect(page.locator('#focus-intro')).toContainText('Target missed by 6 touches');
   await expect(page.locator('#focus-next')).toBeHidden();
-  await expect(page.locator('#focus-character option[value="okocha"]')).toBeDisabled();
+  // State matchers follow the enclosing label to its select. Check the option itself.
+  await expect(page.locator('#focus-character option[value="okocha"]')).toHaveJSProperty(
+    'disabled',
+    true,
+  );
   await expect(page.locator('#focus-board')).toContainText('Set the first record');
   await page.keyboard.press('Tab');
   await expect(page.locator('#focus-start')).toBeFocused();
